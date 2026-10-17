@@ -1,0 +1,16 @@
+crop,variable,data_type,unit_or_scale
+Cucumber,Stem diameter,decimal (1 digit),cm
+Cucumber,Number of flowers,positive integer,count
+Cucumber,Number of fruits,positive integer,count
+Cucumber,Fruit weight,decimal (1 digit),g
+Cucumber,Fruit length,decimal (1 digit),cm
+Tomato,Stem diameter,decimal (1 digit),cm
+Tomato,Number of flowers,positive integer,count
+Tomato,Number of fruits,positive integer,count
+Tomato,Fruit weight,decimal (1 digit),g
+Tomato,Fruit firmness,ordinal scale,1-10 (very soft to very firm)
+Bell pepper,Stem diameter,decimal (1 digit),cm
+Bell pepper,Number of flowers,positive integer,count
+Bell pepper,Number of fruits,positive integer,count
+Bell pepper,Fruit weight,decimal (1 digit),g
+Bell pepper,Lobe count,positive integer,count

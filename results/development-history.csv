@@ -1,0 +1,6 @@
+version,period,milestone
+0.1,April 2024,Initial SQLite capture
+0.2,May 2024,First ThingsBoard HTTP sync
+0.3,June 2024,Bulk and individual deletion
+0.4,June 2024,Editing and validation
+1.0,June 2025,Visual redesign and quick start guide
