@@ -1,5 +1,5 @@
 test,records,total_ms,operations_per_second,source
 Bulk insertion,10000,804,12437.81,Thesis table 3.4
-Read query,1000,381,,Thesis table 3.4
+Read query,1000,381,2624.67,Thesis table 3.4
 Bulk update,1000,522,1915.71,Thesis table 3.4
-Cleanup,10000,162,,Thesis table 3.4
+Cleanup,10000,162,61728.40,Thesis table 3.4

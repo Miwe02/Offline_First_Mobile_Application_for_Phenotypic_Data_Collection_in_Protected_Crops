@@ -41,6 +41,10 @@ More screenshots and their provenance: [screenshots and figures](docs/screenshot
 
 **Flutter/Dart + MVVM + SQLite + HTTP/JSON + ThingsBoard**
 
+The application is organized around four functional modules accessible from the main screen: **data collection**, **record visualization**, **IoT synchronization**, and **reminders**. The diagram below (reproduced from the original thesis) shows the complete navigation and decision flow.
+
+![Application navigation flowchart — original thesis, 2025](assets/architecture/app-flowchart.png)
+
 ```mermaid
 flowchart LR
     U[Field operator] --> F[Flutter mobile interface]
@@ -53,7 +57,7 @@ flowchart LR
     H -. Failed request: keep pending .-> D
 ```
 
-Observations remain available on the device when offline. Synchronization transfers pending records when connectivity is available, with retry support for failed transmissions. See [architecture and implementation notes](docs/architecture.md).
+Observations remain available on the device when offline. Synchronization transfers pending records when connectivity is available, with retry support for failed transmissions. For the full module breakdown, MVVM layer mapping, and first-launch behavior, see [architecture and implementation notes](docs/architecture.md).
 
 ## Collected phenotypic variables
 

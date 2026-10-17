@@ -17,7 +17,3 @@ The thesis preliminaries (printed page IV) state **Attributionâ€“NonCommercialâ€
 **No additional blanket MIT/Apache/GPL software license is asserted here.** The repository does not include application source code. Any reuse of original thesis figures and technical text should respect the University's stated conditions and applicable permissions. Attribution to the original study and supervisor is required where appropriate.
 
 This repository intentionally **does not include the full thesis PDF/DOCX**, because preliminary pages contain personal identification information and institutional agreements that are unnecessary for this public showcase.
-
-## If a thesis link becomes available
-
-Add the official UCLV institutional repository URL here, instead of uploading the unredacted original thesis.

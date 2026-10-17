@@ -5,7 +5,7 @@
 
 > **Repositorio de documentación técnica y académica.** Contiene capturas originales de la aplicación y resultados documentados en la tesis. **No contiene todavía el código fuente Flutter ni un APK.**
 
-[README in English](README.md) · [Arquitectura](docs/architecture.md) · [Variables de los cultivos](docs/data-model.md) · [Pruebas](docs/validation.md) · [Guía de publicación](GUIA_PUBLICACION.md)
+[README in English](README.md) · [Arquitectura](docs/architecture.md) · [Variables de los cultivos](docs/data-model.md) · [Pruebas](docs/validation.md)
 
 ## Problema que resuelve
 
@@ -36,6 +36,37 @@ Funciones principales:
 | <img src="assets/screenshots/synchronization-overview.png" width="185" alt="Sincronización IoT"> | <img src="assets/screenshots/reminders.png" width="185" alt="Recordatorios"> |
 
 Todas las imágenes proceden del documento de tesis de 2025.
+
+## Arquitectura de la aplicación
+
+**Flutter/Dart + MVVM + SQLite + HTTP/JSON + ThingsBoard**
+
+La aplicación se organiza en cuatro módulos funcionales accesibles desde la pantalla principal. El diagrama de flujo a continuación, reproducido de la tesis original, describe la navegación completa y la lógica de decisión de cada módulo.
+
+![Diagrama de flujo de la aplicación — tesis original, 2025](assets/architecture/app-flowchart.png)
+
+| # | Módulo | Descripción |
+|---|---|---|
+| 1 | **Recoger datos** | Seleccionar cultivo → desplegar formulario → validar campos → registrar fecha → guardar en SQLite |
+| 2 | **Visualizar datos** | Consultar, filtrar y editar o eliminar observaciones almacenadas |
+| 3 | **Enviar a plataforma IoT** | Verificar conectividad → autenticar → transferir registros pendientes → confirmar o gestionar errores |
+| 4 | **Establecer recordatorio** | Configurar notificaciones push → registrar agenda de recordatorios |
+
+En el primer inicio la aplicación detecta que no existe una sesión previa y muestra una pantalla de instrucciones. En los inicios siguientes se accede directamente a la pantalla principal.
+
+```mermaid
+flowchart TD
+    OP[Operador de campo] --> UI[Interfaz Flutter]
+    UI <--> VM[ViewModel / Provider]
+    VM <--> BD[(Base de datos SQLite local)]
+    VM --> COLA[Cola de sincronización pendiente]
+    COLA --> HTTP[HTTP POST / JSON]
+    HTTP --> TB[Plataforma IoT ThingsBoard]
+    TB --> PANEL[Gráficos y tablas]
+    HTTP -. Fallo: conservar pendiente .-> BD
+```
+
+Los registros permanecen accesibles en el dispositivo sin conexión. La sincronización transfiere los registros pendientes cuando hay conectividad disponible, con reintento automático en caso de fallo. Para la documentación técnica detallada consulta [architecture.md](docs/architecture.md) *(en inglés)*.
 
 ## Variables registradas
 
